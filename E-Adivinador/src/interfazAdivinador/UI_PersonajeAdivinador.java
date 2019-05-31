@@ -1,7 +1,7 @@
 package interfazAdivinador;
 
 import java.awt.EventQueue;
-
+import principal.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -56,11 +56,12 @@ public class UI_PersonajeAdivinador extends JFrame {
 	 * Create the frame.
 	 */
 	public UI_PersonajeAdivinador() {
+		
 		setResizable(false);
 		
-		Adivinar a = new Adivinar();
+		serviciosAdivinador a = new serviciosAdivinador();
 		int[] numeroEleg = a.elegirnum4();
-		numeroElegido = (numeroEleg[0] +""+ numeroEleg[1] +""+ numeroEleg[2] +""+ numeroEleg[3]);
+		numeroElegido = serviciosAdivinador.transformarLista(numeroEleg);
 		
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 490, 300);
@@ -101,7 +102,7 @@ public class UI_PersonajeAdivinador extends JFrame {
 					int num = Integer.parseInt(tfNIngresado.getText());
 					boolean adivino = true;
 					
-					String numeroPersonaje = tfNIngresado.getText();									
+					String numeroPersonaje = tfNIngresado.getText();
 					
 					if(num<0) {
 						JOptionPane.showMessageDialog(null, "No ingrese números negativos por favor.");
@@ -133,9 +134,9 @@ public class UI_PersonajeAdivinador extends JFrame {
 					
 					if(adivino) {
 						
-						Adivinar adivinar = new Adivinar();
 						int respuesta[] = new int[2];
-						respuesta = adivinar.intentoAdivinar(numeroElegido,numeroPersonaje);
+						respuesta = a.intentoAdivinar(numeroEleg, numeroPersonaje);	
+						
 						
 						tfBien.setText(String.valueOf(respuesta[0]));
 						tfRegular.setText(String.valueOf(respuesta[1]));

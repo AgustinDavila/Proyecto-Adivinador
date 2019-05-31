@@ -1,13 +1,11 @@
-package interfazPensador;
+package principal;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Scanner;
 
-public class Adivinar {
+import interfazPensador.ManejadorExcepciones;
 
+public class serviciosAdivinador {
+	
 	int numeroLista[];
 	int[] listaInicial;
 	ArrayList<int[]> listasRestantes = new ArrayList<>();
@@ -56,9 +54,7 @@ public class Adivinar {
 		}
 	
 	public int[] PcAdivina(int numBien, int numRegular)throws ManejadorExcepciones{
-		
-		System.out.println("Entro al método para adivinar");
-		
+				
 		numeroLista = new int[4];
 		
 
@@ -67,8 +63,7 @@ public class Adivinar {
         int respRegular = numRegular;
         
         if(primeraVez) {
-        
-        	System.out.println("Entro por primera vez");
+
 	        for (int a = 1; a < 10; a++) {
 	            for (int b = 0; b < 10; b++) {
 	                if (a == b) {
@@ -99,7 +94,6 @@ public class Adivinar {
         
         }else {
         	
-        	System.out.println("Entro por x vez");
 	        ArrayList<int[]> listasSiguientes = new ArrayList<>();
 	        for (int i = 0; i < listasRestantes.size(); i++) {
 	        	int[] listaRestante = listasRestantes.get(i);
@@ -156,6 +150,28 @@ public class Adivinar {
 	return respuesta;
 		
 	}
-
+    
+    public int[] intentoAdivinar(int[] listaOrig,String numPersonaje) {
+		
+		int respuesta[] = new int[2];
+		String listaOriginal = transformarLista(listaOrig);
+		
+		for(int i=0;i<numPersonaje.length();i++) {
+			for(int a=0;a<listaOriginal.length();a++) {
+				if(numPersonaje.charAt(i) == listaOriginal.charAt(a)){
+					if(i==a) {
+						respuesta[0]= respuesta[0] + 1;
+					}else {
+						respuesta[1]= respuesta[1] + 1;
+					}
+				}
+			}
+		}
+		
+		return respuesta;
+		
+	}
 	
+	
+
 }

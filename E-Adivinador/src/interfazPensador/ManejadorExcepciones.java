@@ -1,7 +1,5 @@
 package interfazPensador;
 
-import java.io.*;
-
 import javax.swing.JOptionPane;
 
 import principal.UI_Principal;

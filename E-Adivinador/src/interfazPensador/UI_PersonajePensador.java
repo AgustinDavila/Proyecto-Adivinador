@@ -1,7 +1,7 @@
 package interfazPensador;
 
 import java.awt.EventQueue;
-
+import principal.*;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -88,9 +88,10 @@ public class UI_PersonajePensador extends JFrame {
 		JComboBox cbRegular = new JComboBox();
 		cbRegular.setModel(new DefaultComboBoxModel(new String[] {"0", "1", "2", "3", "4"}));
 		
-		Adivinar a = new Adivinar();
+		serviciosAdivinador a = new serviciosAdivinador();
 		int[] numeroEleg = a.elegirnum4();
-		String numeroElegido = (numeroEleg[0] +""+ numeroEleg[1] +""+ numeroEleg[2] +""+ numeroEleg[3]);
+
+		String numeroElegido = serviciosAdivinador.transformarLista(numeroEleg);
 		tfNumero.setText(numeroElegido);
 		
 		JButton btnResponder = new JButton("Responder");
