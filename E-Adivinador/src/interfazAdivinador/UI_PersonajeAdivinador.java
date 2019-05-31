@@ -1,6 +1,5 @@
 package interfazAdivinador;
 
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -60,7 +59,6 @@ public class UI_PersonajeAdivinador extends JFrame {
 		setResizable(false);
 		
 		Adivinar a = new Adivinar();
-		System.out.println("Se esta ejecutando esto amigo");
 		int[] numeroEleg = a.elegirnum4();
 		numeroElegido = (numeroEleg[0] +""+ numeroEleg[1] +""+ numeroEleg[2] +""+ numeroEleg[3]);
 		
@@ -101,8 +99,28 @@ public class UI_PersonajeAdivinador extends JFrame {
 				
 				try {
 					int num = Integer.parseInt(tfNIngresado.getText());
+					boolean adivino = true;
 					
-					String numeroPersonaje = tfNIngresado.getText();
+					String numeroPersonaje = tfNIngresado.getText();									
+					
+					if(num<0) {
+						JOptionPane.showMessageDialog(null, "No ingrese números negativos por favor.");
+						adivino = false;
+					}
+					
+					if(0<num && num<1000) {
+						JOptionPane.showMessageDialog(null, "Ingrese 4 números por favor.");
+						adivino = false;
+					}
+					
+					if(numeroPersonaje.charAt(0) == numeroPersonaje.charAt(1) || numeroPersonaje.charAt(0) == numeroPersonaje.charAt(2) || numeroPersonaje.charAt(0) == numeroPersonaje.charAt(3)
+				       || numeroPersonaje.charAt(1) == numeroPersonaje.charAt(2) || numeroPersonaje.charAt(0) == numeroPersonaje.charAt(3)
+				       || numeroPersonaje.charAt(2) == numeroPersonaje.charAt(3)) {
+						
+						JOptionPane.showMessageDialog(null, "No se pueden ingresar numero repetidos.");
+						adivino = false;
+						
+					}
 					
 					if(numeroElegido.equals(numeroPersonaje)) {
 						
@@ -111,7 +129,9 @@ public class UI_PersonajeAdivinador extends JFrame {
 						ui_ganar.setLocationRelativeTo(null);
 						dispose();
 						
-					}else {
+					}
+					
+					if(adivino) {
 						
 						Adivinar adivinar = new Adivinar();
 						int respuesta[] = new int[2];
@@ -123,7 +143,7 @@ public class UI_PersonajeAdivinador extends JFrame {
 					}
 					
 				}catch(Exception e){
-					JOptionPane.showMessageDialog(null, "Ingrese solo números por favor");
+					JOptionPane.showMessageDialog(null, "Ingrese solo números por favor.");
 				}
 
 			}

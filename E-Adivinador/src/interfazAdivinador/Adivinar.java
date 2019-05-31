@@ -1,7 +1,5 @@
 package interfazAdivinador;
 
-import java.util.Random;
-
 public class Adivinar implements MetodoAdivinador{
 		
 	int numeroLista[];
@@ -41,9 +39,7 @@ public class Adivinar implements MetodoAdivinador{
 	}			
 	
 		System.out.println("El numero elegido es " + numeroLista[0] + numeroLista[1] + numeroLista[2] + numeroLista[3] );
-		String numero = "" + numeroLista[0] + "" + numeroLista[1] + "" + numeroLista[2] + "" + numeroLista[3];
-		int numero2 = Integer.parseInt(numero);
-		System.out.println(numero2 + " jaja");
+		String numero = (numeroLista[0] + "" + numeroLista[1] + "" + numeroLista[2] + "" + numeroLista[3]);
 		
 		return numeroLista;
 	}	
@@ -54,9 +50,7 @@ public class Adivinar implements MetodoAdivinador{
 		int respuesta[] = new int[2];
 		
 		for(int i=0;i<numPersonaje.length();i++) {
-			System.out.println("Primero agarro " + numPersonaje.charAt(i));
 			for(int a=0;a<lista.length();a++) {
-				System.out.println("Segundo agarro " + lista.charAt(a));
 				if(numPersonaje.charAt(i) == lista.charAt(a)){
 					if(i==a) {
 						respuesta[0]= respuesta[0] + 1;
@@ -72,16 +66,6 @@ public class Adivinar implements MetodoAdivinador{
 		return respuesta;
 		
 	}
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 	
 	
 }

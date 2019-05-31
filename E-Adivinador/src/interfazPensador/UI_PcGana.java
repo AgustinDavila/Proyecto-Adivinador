@@ -1,21 +1,25 @@
-package interfazAdivinador;
+package interfazPensador;
 
-import principal.*;
+import java.awt.BorderLayout;
 import java.awt.EventQueue;
+
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+
+import principal.UI_Principal;
+
 import javax.swing.JLabel;
 import javax.swing.SwingConstants;
-import javax.swing.GroupLayout;
-import javax.swing.GroupLayout.Alignment;
 import java.awt.Font;
-import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.LayoutStyle.ComponentPlacement;
 
-public class UI_Ganaste extends JFrame {
+public class UI_PcGana extends JFrame {
 
 	private JPanel contentPane;
 
@@ -26,7 +30,7 @@ public class UI_Ganaste extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					UI_Ganaste frame = new UI_Ganaste();
+					UI_PcGana frame = new UI_PcGana();
 					frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -38,17 +42,17 @@ public class UI_Ganaste extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public UI_Ganaste() {
+	public UI_PcGana() {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 204);
+		setBounds(100, 100, 450, 205);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		
-		JLabel lblFelicitacionesGanaste = new JLabel("Felicitaciones Ganaste !");
-		lblFelicitacionesGanaste.setFont(new Font("Tahoma", Font.BOLD, 30));
-		lblFelicitacionesGanaste.setHorizontalAlignment(SwingConstants.CENTER);
+		JLabel lblHeAdivinadoTu = new JLabel("He adivinado tu n\u00FAmero !");
+		lblHeAdivinadoTu.setFont(new Font("Tahoma", Font.BOLD, 30));
+		lblHeAdivinadoTu.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JButton btnVolverAJugar = new JButton("Volver a Jugar");
 		btnVolverAJugar.addActionListener(new ActionListener() {
@@ -63,26 +67,26 @@ public class UI_Ganaste extends JFrame {
 		});
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
 		gl_contentPane.setHorizontalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
+					.addContainerGap(27, Short.MAX_VALUE)
+					.addComponent(lblHeAdivinadoTu, GroupLayout.PREFERRED_SIZE, 397, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap())
 				.addGroup(gl_contentPane.createSequentialGroup()
-					.addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addContainerGap()
-							.addComponent(lblFelicitacionesGanaste, GroupLayout.PREFERRED_SIZE, 424, GroupLayout.PREFERRED_SIZE))
-						.addGroup(gl_contentPane.createSequentialGroup()
-							.addGap(153)
-							.addComponent(btnVolverAJugar, GroupLayout.PREFERRED_SIZE, 129, GroupLayout.PREFERRED_SIZE)))
-					.addContainerGap(GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+					.addGap(146)
+					.addComponent(btnVolverAJugar, GroupLayout.PREFERRED_SIZE, 135, GroupLayout.PREFERRED_SIZE)
+					.addContainerGap(153, Short.MAX_VALUE))
 		);
 		gl_contentPane.setVerticalGroup(
-			gl_contentPane.createParallelGroup(Alignment.TRAILING)
-				.addGroup(Alignment.LEADING, gl_contentPane.createSequentialGroup()
-					.addGap(20)
-					.addComponent(lblFelicitacionesGanaste, GroupLayout.PREFERRED_SIZE, 69, GroupLayout.PREFERRED_SIZE)
-					.addPreferredGap(ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+			gl_contentPane.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPane.createSequentialGroup()
+					.addContainerGap()
+					.addComponent(lblHeAdivinadoTu, GroupLayout.PREFERRED_SIZE, 89, GroupLayout.PREFERRED_SIZE)
+					.addGap(32)
 					.addComponent(btnVolverAJugar)
 					.addContainerGap())
 		);
 		contentPane.setLayout(gl_contentPane);
 	}
+
 }

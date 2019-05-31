@@ -1,8 +1,10 @@
+package principal;
+
+
 
 import interfazAdivinador.*;
+import interfazPensador.*;
 
-
-import java.awt.BorderLayout;
 import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -13,10 +15,8 @@ import java.awt.Font;
 import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-import java.awt.FlowLayout;
 import javax.swing.GroupLayout;
 import javax.swing.GroupLayout.Alignment;
-import javax.swing.LayoutStyle.ComponentPlacement;
 
 public class UI_Principal extends JFrame {
 
@@ -63,6 +63,16 @@ public class UI_Principal extends JFrame {
 		lblquePersonajeDesea.setHorizontalAlignment(SwingConstants.CENTER);
 		
 		JButton btnPensador = new JButton("Pensador");
+		btnPensador.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				
+				UI_PersonajePensador ui_pens = new UI_PersonajePensador();
+				ui_pens.setVisible(true);
+				ui_pens.setLocationRelativeTo(null);
+				dispose();
+				
+			}
+		});
 		
 		JButton btnAdivinador = new JButton("Adivinador");
 		btnAdivinador.addActionListener(new ActionListener() {
